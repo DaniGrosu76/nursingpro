@@ -1,0 +1,129 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 20% 20%, rgba(29, 78, 216, 0.06), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(37, 99, 235, 0.08), transparent 35%),
+              var(--bg);
+  color: var(--text);
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  padding: 8px 14px;
+  background: rgba(29, 78, 216, 0.08);
+  color: var(--accent);
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 12px;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(26px, 5vw, 34px);
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.translation-list {
+  display: grid;
+  gap: 24px;
+}
+
+.translation-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.translation-card:hover,
+.translation-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border-color: rgba(29, 78, 216, 0.35);
+}
+
+.translation-card:focus-visible {
+  outline: 3px solid rgba(29, 78, 216, 0.35);
+  outline-offset: 4px;
+}
+
+.translation-card .label {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.source {
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.translation {
+  margin: 12px 0 0;
+  color: #0f172a;
+  font-size: 17px;
+  line-height: 1.6;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 220ms ease, opacity 180ms ease;
+}
+
+.translation-card:hover .translation,
+.translation-card:focus-within .translation {
+  max-height: 200px;
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .translation-card {
+    padding: 18px;
+  }
+
+  .source,
+  .translation {
+    font-size: 16px;
+  }
+}
